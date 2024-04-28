@@ -2,7 +2,7 @@ getgenv().PLAZA = {
     Global = {
         yourKey = "KITTYWARE_CW1T5KFWP2",
         web_Cfg = {
-            Sniper = {send = true, ping = true, send_fails = false, ping_fails = true, url = "https://discord.com/api/webhooks/1232160855190147173/WoiurQxfQEDQR7EXLmuglXr1hmkEvbhsqSgJNDdPieRLWaJ6u0ulIis5HNx1mZGeNeV2"},
+            Sniper = {send = true, ping = true, send_fails = false, ping_fails = false, url = "https://discord.com/api/webhooks/1232160855190147173/WoiurQxfQEDQR7EXLmuglXr1hmkEvbhsqSgJNDdPieRLWaJ6u0ulIis5HNx1mZGeNeV2"},
             Seller = {send = true, ping = true, url = "https://discord.com/api/webhooks/1232160959326453770/4qR9sH_Ge2pIstUO_FkbenZUdkBjpcCXefcWbCbgOEAuGzJPcitqMXHAg9j85Xd5XfJD"},
         },
         
@@ -23,15 +23,14 @@ getgenv().PLAZA = {
             },
 
             SELL_CUSTOM = {
-           {Class = "Misc", Item = {id = "Mini Pinata"}, Cost = 63000},    
-
+                {Class = "Misc", Item = {id = "Mini Pinata"}, Cost = 63000},
             },
 
             AUTO_REDUCER = true, --// COMING SOON
             TIME_REDUCER = 900, --// COMING SOON
             ["-%_REDUCER"] = -5, --// COMING SOON
 
-            SELL_BY_RAP = false,
+            SELL_BY_RAP = true,
             SERV_HOPPER = true,
             MIN_PLAYER_COUNT = 10,
             MAX_SERVER_TIME = 1200,
@@ -57,10 +56,11 @@ getgenv().PLAZA = {
             },
 
             BUY_CUSTOM = {
-             {Class = "Misc", Item = {id = "Secret Key"}, Cost = 50000},
+                {Class = "Misc", Item = {id = "Secret Key"}, Cost = 50000},
            },
 
             SERV_HOPPER = true,
+            SERV_HOP_RANDOM = false,
             HOP_FAIL_SAFE = 5,
             MIN_SERVER_TIME = 300,
             CHECK_COOLDOWN = 1,

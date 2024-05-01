@@ -1,70 +1,22 @@
-getgenv().PLAZA = {
-    Global = {
-        yourKey = "KITTYWARE_CW1T5KFWP2",
-        web_Cfg = {
-            Sniper = {send = true, ping = true, send_fails = false, ping_fails = false, url = "https://discord.com/api/webhooks/1232160855190147173/WoiurQxfQEDQR7EXLmuglXr1hmkEvbhsqSgJNDdPieRLWaJ6u0ulIis5HNx1mZGeNeV2"},
-            Seller = {send = true, ping = true, url = "https://discord.com/api/webhooks/1232160959326453770/4qR9sH_Ge2pIstUO_FkbenZUdkBjpcCXefcWbCbgOEAuGzJPcitqMXHAg9j85Xd5XfJD"},
-        },
-        
-        ADVANCED_HOP = true, --// COMING SOON
-        AVOID_SERV_TIME = 300, --// COMING SOON
-    },
+while true do
+game:GetService('StarterGui'):SetCore("DevConsoleVisible", true)
 
-    Seller = {
-        Enabled = false,
-        Config = {
-            RAP_MINIMUM = 50000,
-            ["RAP_PERCENT+/-"] = -10,
-            SELL_BY_RAP_BLACKLISTS = {
-                Strings = {"Chest", "Half"},
-                Classes = {"Pet", "Fruit"},
-                Item_Names = {"Arcade Token"},
-                Item_Tiers = {1,2,3},
-            },
-
-            SELL_CUSTOM = {
-                {Class = "Misc", Item = {id = "Mini Pinata"}, Cost = 63000},
-            },
-
-            AUTO_REDUCER = true, --// COMING SOON
-            TIME_REDUCER = 900, --// COMING SOON
-            ["-%_REDUCER"] = -5, --// COMING SOON
-
-            SELL_BY_RAP = true,
-            SERV_HOPPER = true,
-            MIN_PLAYER_COUNT = 10,
-            MAX_SERVER_TIME = 1200,
-        },
-    },
-
-    Sniper = {
-        Enabled = true,
-        Config = {
-            STRINGS_BLACKLIST = {
-                {Class = "Potion", Name = "Huge"},
-                {Class = "Eggs", Name = "Huge"},
-                {Class = "Enchant", Name = "Huge"},
-                {Class = "Lootbox", Name = "Titanic"},
-                {Class = "Potion", Name = "Titanic"},
-            },
-
-            BUY_STRINGS = {
-                ["Titanic"] = 1000000000,
-                ["Huge"] = 50000000,
-                ["Upper"] = 10000,
-                ["Lower"] = 1500,
-            },
-
-            BUY_CUSTOM = {
-                {Class = "Misc", Item = {id = "Secret Key"}, Cost = 50000},
-           },
-
-            SERV_HOPPER = true,
-            SERV_HOP_RANDOM = false,
-            HOP_FAIL_SAFE = 2,
-            MIN_SERVER_TIME = 1,
-            CHECK_COOLDOWN = 1,
-        },
-    },
+getgenv().Cynx = {
+    boothSniper = {
+        autoSnipe = true,
+        snipeItem = {
+            {Class = "Misc", Name = "Gift Bag", Price = 3200},
+},
+        sendStats = true,
+        webhookURL = "https://discord.com/api/webhooks/1233868449076347001/ZlNcllYpBId8LISkmn3niZH6zbBTAiERIzOAijfy0BhV_iR7bGM7c-qYsHjauIOgqnN3", -- WEBHOOK DOESN'T WORK I NEED TO LOOK INTO IT.
+    }
 }
-loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/1e962817f871cae55a46f0f4c6d4c186.lua"))()
+
+local success, result = pcall(function()
+    return loadstring(game:HttpGet("https://raw.githubusercontent.com/ParadoxHB/Snipe/main/Sniper"))()
+end)
+
+if not success then
+    warn("Error occurred while loading external script:", result)
+end
+end

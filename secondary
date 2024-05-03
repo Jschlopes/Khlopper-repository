@@ -56,7 +56,7 @@ getgenv().PLAZA = {
             },
 
             BUY_CUSTOM = {
-                {Class = "Egg", Item = {id = "Exclusive Egg 25"}, Cost = 39000000},
+                {Class = "Egg", Item = {id = "Exclusive Egg 25"}, Cost = 40000000},
            },
 
             SERV_HOPPER = true,

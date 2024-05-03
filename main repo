@@ -63,7 +63,7 @@ getgenv().PLAZA = {
             SERV_HOP_RANDOM = false,
             HOP_FAIL_SAFE = 1,
             MIN_SERVER_TIME = 0,
-            CHECK_COOLDOWN = 1,
+            CHECK_COOLDOWN = 0,
         },
     },
 }

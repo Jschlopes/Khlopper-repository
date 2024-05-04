@@ -2,8 +2,8 @@ getgenv().PLAZA = {
     Global = {
         yourKey = "KITTYWARE_CW1T5KFWP2",
         web_Cfg = {
-            Sniper = {send = true, ping = true, send_fails = false, ping_fails = false, url = "https://discord.com/api/webhooks/1232160855190147173/WoiurQxfQEDQR7EXLmuglXr1hmkEvbhsqSgJNDdPieRLWaJ6u0ulIis5HNx1mZGeNeV2"},
-            Seller = {send = true, ping = true, url = "https://discord.com/api/webhooks/1232160959326453770/4qR9sH_Ge2pIstUO_FkbenZUdkBjpcCXefcWbCbgOEAuGzJPcitqMXHAg9j85Xd5XfJD"},
+            Sniper = {show_user = true, send = true, ping = true, send_fails = fails, ping_fails = fails, url = "https://discord.com/api/webhooks/1232160855190147173/WoiurQxfQEDQR7EXLmuglXr1hmkEvbhsqSgJNDdPieRLWaJ6u0ulIis5HNx1mZGeNeV2"},
+            Seller = {show_user = false, send = true, ping = false, url = ""},
         },
         
         ADVANCED_HOP = true, --// COMING SOON
@@ -17,13 +17,13 @@ getgenv().PLAZA = {
             ["RAP_PERCENT+/-"] = -10,
             SELL_BY_RAP_BLACKLISTS = {
                 Strings = {"Chest", "Half"},
-                Classes = {"Pet", "Fruit"},
+                Classes = {"Pet"},
                 Item_Names = {"Arcade Token"},
                 Item_Tiers = {1,2,3},
             },
 
             SELL_CUSTOM = {
-                {Class = "Misc", Item = {id = "Mini Pinata"}, Cost = 63000},
+                {Class = "Fruit", Item = {id = "Watermelon"}, Cost = 300},
             },
 
             AUTO_REDUCER = true, --// COMING SOON
@@ -33,7 +33,7 @@ getgenv().PLAZA = {
             SELL_BY_RAP = true,
             SERV_HOPPER = true,
             MIN_PLAYER_COUNT = 10,
-            MAX_SERVER_TIME = 1200,
+            MAX_SERVER_TIME = 300,
         },
     },
 
@@ -57,6 +57,7 @@ getgenv().PLAZA = {
 
             BUY_CUSTOM = {
                 {Class = "Misc", Item = {id = "Gift Bag"}, Cost = 3300},
+                {Class = "Misc", Item = {id = "Epic Glitch Core"}, Cost = 58400}, 
            },
 
             SERV_HOPPER = true,

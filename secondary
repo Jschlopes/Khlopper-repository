@@ -2,7 +2,7 @@ getgenv().PLAZA = {
     Global = {
         yourKey = "KITTYWARE_CW1T5KFWP2",
         web_Cfg = {
-            Sniper = {show_user = true, send = true, ping = true, send_fails = false, ping_fails = false, url = "https://discord.com/api/webhooks/1212848643225296998/0bVliYrNlW2vat-Phqw_m8aNNVIAh9ejcl0FebXrSRusJWM-iVUYm5Li9Yo5oe2vTa0U"},
+            Sniper = {show_user = true, send = true, ping = true, send_fails = fails, ping_fails = fails, url = "https://discord.com/api/webhooks/1232160855190147173/WoiurQxfQEDQR7EXLmuglXr1hmkEvbhsqSgJNDdPieRLWaJ6u0ulIis5HNx1mZGeNeV2"},
             Seller = {show_user = false, send = true, ping = false, url = ""},
         },
         
@@ -56,7 +56,8 @@ getgenv().PLAZA = {
             },
 
             BUY_CUSTOM = {
-                {Class = "Misc", Item = {id = "Epic Glitch Core"}, Cost = 58600},
+                {Class = "Misc", Item = {id = "Gift Bag"}, Cost = 3300},
+                {Class = "Misc", Item = {id = "Epic Glitch Core"}, Cost = 58400}, 
            },
 
             SERV_HOPPER = true,

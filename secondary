@@ -1,23 +1,31 @@
-_G.PrintAll = true
-_G.PrintClass = "Misc"
+getgenv().autoPlaza = {
+    Sniper = {
+        Enabled = true,
 
-local mod = require(game:GetService("ReplicatedStorage").Library.Client.Save)
-local save = mod.Get(game.Players.LocalPlayer)
+        DISCORD_ID = "743935451181875211",
+        WEBHOOK_URL = "https://discord.com/api/webhooks/1212848643225296998/0bVliYrNlW2vat-Phqw_m8aNNVIAh9ejcl0FebXrSRusJWM-iVUYm5Li9Yo5oe2vTa0U",
+        SHOW_USER = true,
 
-if _G.PrintAll then
-    for className,classTable in pairs(save.Inventory) do
-        warn(className)
-        for itemID, itemTable in pairs(classTable) do
-            if itemTable.id then
-                print(itemTable.id)
-            end
-        end
-    end
-else
-    warn(_G.PrintClass)
-    for itemID, itemTable in pairs(save.Inventory[_G.PrintClass]) do
-        if itemTable.id then
-            print(itemTable.id)
-        end
-    end
-end
+        SEND_SNPES = true,
+        PING_SNPES = true,
+
+        SEND_FAILS = false,
+        PING_FAILS = false,
+
+        BUY_ANY_EXCLUSIVE_PRICE = 500000,
+        BUY_ANY_HUGE_PRICE = 40000000,
+        BUY_ANY_TITANIC_PRICE = 1000000000,
+
+        --BUY_BY_RAP = false --// FUTURE
+        --RAP_PERCENT = -35, --// (shitty api doesn't return class names thats why not added yet ; and im lazy and tired and sick so)
+
+        BUY_CUSTOM = {
+                {Class = "Misc", Item = {id = "Epic Glitch Core"}, Cost = 58000},
+        },
+
+        STATS_TRACKER = true,
+        MIN_SERVER_TIME = 0,
+        SERVER_HOPPER = true,
+    }
+}
+loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/174be8434f73167cdcd6db01eb3716dd.lua"))()

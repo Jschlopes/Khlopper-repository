@@ -56,7 +56,7 @@ getgenv().PLAZA = {
             },
 
             BUY_CUSTOM = {
-                {Class = "Misc", Item = {id = "Epic Glitch Core"}, Cost = 58000},
+                {Class = "Misc", Item = {id = "Epic Glitch Core"}, Cost = 58600},
            },
 
             SERV_HOPPER = true,

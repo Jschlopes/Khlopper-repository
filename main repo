@@ -13,4 +13,3 @@ getgenv().Cynx = {
 }
 loadstring(game:HttpGet("https://raw.githubusercontent.com/ParadoxHB/Snipe/main/Sniper"))()
 end
-end

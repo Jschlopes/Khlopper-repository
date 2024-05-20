@@ -1,70 +1,32 @@
-getgenv().PLAZA = {
-    Global = {
-        yourKey = "KITTYWARE_CW1T5KFWP2",
-        web_Cfg = {
-            Sniper = {show_user = true, send = true, ping = true, send_fails = fails, ping_fails = fails, url = "https://discord.com/api/webhooks/1232160855190147173/WoiurQxfQEDQR7EXLmuglXr1hmkEvbhsqSgJNDdPieRLWaJ6u0ulIis5HNx1mZGeNeV2"},
-            Seller = {show_user = false, send = true, ping = false, url = ""},
-        },
-        
-        ADVANCED_HOP = true, --// COMING SOON
-        AVOID_SERV_TIME = 300, --// COMING SOON
-    },
-
-    Seller = {
-        Enabled = false,
-        Config = {
-            RAP_MINIMUM = 50000,
-            ["RAP_PERCENT+/-"] = -10,
-            SELL_BY_RAP_BLACKLISTS = {
-                Strings = {"Chest", "Half"},
-                Classes = {"Pet"},
-                Item_Names = {"Arcade Token"},
-                Item_Tiers = {1,2,3},
-            },
-
-            SELL_CUSTOM = {
-                {Class = "Fruit", Item = {id = "Watermelon"}, Cost = 300},
-            },
-
-            AUTO_REDUCER = true, --// COMING SOON
-            TIME_REDUCER = 900, --// COMING SOON
-            ["-%_REDUCER"] = -5, --// COMING SOON
-
-            SELL_BY_RAP = true,
-            SERV_HOPPER = true,
-            MIN_PLAYER_COUNT = 10,
-            MAX_SERVER_TIME = 300,
-        },
-    },
-
+getgenv().autoPlaza = {
     Sniper = {
         Enabled = true,
-        Config = {
-            STRINGS_BLACKLIST = {
-                {Class = "Potion", Name = "Huge"},
-                {Class = "Eggs", Name = "Huge"},
-                {Class = "Enchant", Name = "Huge"},
-                {Class = "Lootbox", Name = "Titanic"},
-                {Class = "Potion", Name = "Titanic"},
-            },
 
-            BUY_STRINGS = {
-                ["Titanic"] = 1000000000,
-                ["Huge"] = 50000000,
-                ["Upper"] = 10000,
-                ["Lower"] = 1500,
-            },
+        DISCORD_ID = "743935451181875211",
+        WEBHOOK_URL = "https://discord.com/api/webhooks/1232160855190147173/WoiurQxfQEDQR7EXLmuglXr1hmkEvbhsqSgJNDdPieRLWaJ6u0ulIis5HNx1mZGeNeV2",
+        SHOW_USER = true,
 
-            BUY_CUSTOM = {
+        SEND_SNPES = true,
+        PING_SNPES = true,
+
+        SEND_FAILS = false,
+        PING_FAILS = false,
+
+        PING_ALL_EXCLUSIVES = true,
+        BUY_ANY_EXCLUSIVE_PRICE = 300000,
+        BUY_ANY_HUGE_PRICE = 40000000,
+        BUY_ANY_TITANIC_PRICE = 1000000000,
+
+        BUY_CUSTOM = {
                 {Class = "Misc", Item = {id = "Gift Bag"}, Cost = 3300},
-           },
-
-            SERV_HOPPER = true,
-            SERV_HOP_RANDOM = false,
-            HOP_FAIL_SAFE = 1,
-            MIN_SERVER_TIME = 0,
-            CHECK_COOLDOWN = 0,
         },
-    },
+
+        MIN_CANDIDATES = 1, -- (for stats tracker)
+        STATS_TRACKER = true,
+
+        MIN_BOOTH_CHECKS = 3,
+        MIN_FOUND_SERVERS = 1,
+        SERVER_HOPPER = true,
+    }
 }
-loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/1e962817f871cae55a46f0f4c6d4c186.lua"))()
+loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/0f103ef58ec991b5be6c9a2dcf83dad1.lua"))()

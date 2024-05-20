@@ -22,7 +22,7 @@ getgenv().autoPlaza = {
         },
 
         MIN_CANDIDATES = 1, -- (for stats tracker)
-        STATS_TRACKER = true,
+        STATS_TRACKER = false,
 
         MIN_BOOTH_CHECKS = 3,
         MIN_FOUND_SERVERS = 1,

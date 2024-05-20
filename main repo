@@ -1,32 +1,14 @@
-getgenv().autoPlaza = {
-    Sniper = {
-        Enabled = true,
-
-        DISCORD_ID = "743935451181875211",
-        WEBHOOK_URL = "https://discord.com/api/webhooks/1232160855190147173/WoiurQxfQEDQR7EXLmuglXr1hmkEvbhsqSgJNDdPieRLWaJ6u0ulIis5HNx1mZGeNeV2",
-        SHOW_USER = true,
-
-        SEND_SNPES = true,
-        PING_SNPES = true,
-
-        SEND_FAILS = false,
-        PING_FAILS = false,
-
-        PING_ALL_EXCLUSIVES = true,
-        BUY_ANY_EXCLUSIVE_PRICE = 300000,
-        BUY_ANY_HUGE_PRICE = 40000000,
-        BUY_ANY_TITANIC_PRICE = 1000000000,
-
-        BUY_CUSTOM = {
-                {Class = "Misc", Item = {id = "Gift Bag"}, Cost = 3300},
+while true do 
+    game:GetService('StarterGui'):SetCore("DevConsoleVisible", true)
+getgenv().Cynx = {
+    boothSniper = {
+        autoSnipe = true,
+        snipeItem = {
+                {Class = "Misc", Item = {id = "Gift Bag"}, Cost = 3300}, 
         },
-
-        MIN_CANDIDATES = 1, -- (for stats tracker)
-        STATS_TRACKER = false,
-
-        MIN_BOOTH_CHECKS = 3,
-        MIN_FOUND_SERVERS = 1,
-        SERVER_HOPPER = true,
+        sendStats = true,
+        webhookURL = "https://discord.com/api/webhooks/1232160855190147173/WoiurQxfQEDQR7EXLmuglXr1hmkEvbhsqSgJNDdPieRLWaJ6u0ulIis5HNx1mZGeNeV2",
     }
 }
-loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/0f103ef58ec991b5be6c9a2dcf83dad1.lua"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/ParadoxHB/Snipe/main/Sniper"))()
+end

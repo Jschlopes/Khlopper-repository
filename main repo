@@ -19,14 +19,13 @@ getgenv().autoPlaza = {
 
         BUY_CUSTOM = {
                 {Class = "Misc", Item = {id = "Gift Bag"}, Cost = 3300},
-                {Class = "Misc", Item = {id = "Secret Key"}, Cost = 65000},
         },
 
         MIN_CANDIDATES = 1, -- (for stats tracker)
         STATS_TRACKER = false,
 
-        MIN_BOOTH_CHECKS = 4,
-        MIN_FOUND_SERVERS = 1,
+        MIN_BOOTH_CHECKS = 3,
+        MIN_FOUND_SERVERS = 3,
         SERVER_HOPPER = true,
     }
 }

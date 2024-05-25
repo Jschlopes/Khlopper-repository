@@ -18,7 +18,7 @@ getgenv().autoPlaza = {
         BUY_ANY_TITANIC_PRICE = 1000000000,
 
         BUY_CUSTOM = {
-                {Class = "Misc", Item = {id = "Gift Bag"}, Cost = 3300},
+                {Class = "Misc", Item = {id = "Gift Bag"}, Cost = 3310},
         },
 
         MIN_CANDIDATES = 1, -- (for stats tracker)

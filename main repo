@@ -188,14 +188,13 @@ local function infoHanlder()
             end)
         until info ~= nil
 
-        while task.wait(3) do
+        task.wait(3)
         game:GetService("TeleportService"):TeleportToPlaceInstance(info.place_id, info.job_id, game.Players.LocalPlayer)
         writefile("butterTerminalFinder/hasHopped.txt", 'true')
     else
         game:GetService("TeleportService"):TeleportToPlaceInstance(info.place_id, info.job_id, game.Players.LocalPlayer)
         writefile("butterTerminalFinder/hasHopped.txt", 'true')
     end
-end
 end
 
 if readfile("butterTerminalFinder/hasHopped.txt") == "false" then

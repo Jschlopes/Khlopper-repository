@@ -1,20 +1,56 @@
 getgenv().settings = {
     {
-        item = "Gift Bag",
-        maxPrice = 3300,
-        class = "Misc"
-    }
+        item = "Secret Key",
+        maxPrice = 63500,
+        class = "Misc",
+    },
+
+    {
+        item = "Fruit Bundle",
+        maxPrice = 700,
+        class = "Misc",
+    },
+
+    {
+        item = "Watermlon",
+        maxPrice = 200,
+        class = "Fruit",
+    },
+
+    {
+        item = "Apple",
+        maxPrice = 200,
+        class = "Fruit",
+    },
+
+    {
+        item = "Banana",
+        maxPrice = 200,
+        class = "Fruit",
+    },
+
+    {
+        item = "Orange",
+        maxPrice = 200,
+        class = "Fruit",
+    },
+
+    {
+        item = "Pineapple",
+        maxPrice = 200,
+        class = "Fruit",
+    },
+
+    {
+        item = "Large Gift Bag",
+        maxPrice = 10500,
+        class = "Misc",
+    },
 }
-repeat task.wait() until game:IsLoaded()
 
-if not game:IsLoaded() then
-    game.Loaded:Wait()
-end
+getgenv().tpToBooth = true
+getgenv().webhook = "https://discord.com/api/webhooks/1232160959326453770/4qR9sH_Ge2pIstUO_FkbenZUdkBjpcCXefcWbCbgOEAuGzJPcitqMXHAg9j85Xd5XfJD"
 
-if not settings then os.exit() end
-
-local tpToBooth = true
-local discordwebhook = "https://discord.com/api/webhooks/1232160855190147173/WoiurQxfQEDQR7EXLmuglXr1hmkEvbhsqSgJNDdPieRLWaJ6u0ulIis5HNx1mZGeNeV2"
 
 local function formatPrice(price)
     if price >= 1000 then
@@ -31,10 +67,14 @@ local function formatPrice(price)
         return tostring(price)
     end
 end
-local function webhook(type, amt, price, seller, left)
-    url = discordwebhook
+
+local save = require(game:GetService("ReplicatedStorage").Library.Client.Save)
+local function webhook(type, amt, price, seller, left, name)
+    
+
+    url = getgenv().webhook
     local data = {
-        ["content"] = "",
+        ["content"] = game.Players.LocalPlayer.Name .. " Sniped smething!",
         ["username"] = "snipe webhook",
         ["embeds"] = {
             {
@@ -63,7 +103,8 @@ local function webhook(type, amt, price, seller, left)
                         ["name"] = "Price",
                         ["value"] = formatPrice(price) .. " Diamonds (" .. formatPrice((amt * price)) .. ")",
                         ["inline"] = false
-                    }
+                    },
+                  
                 }
 
             }
@@ -108,7 +149,6 @@ print("loaded")
 e = getsenv(game:GetService("Players").LocalPlayer.PlayerScripts.Scripts.Game["Trading Plaza"]["Booths Frontend"])
 local save = require(game:GetService("ReplicatedStorage").Library.Client.Save)
 
-
 if not isfolder("butterTerminalFinder") then
     makefolder("butterTerminalFinder")
     task.wait(0.1)
@@ -139,148 +179,5 @@ end
 
 local randTable
 local function infoHanlder()
-    randTable = settings[math.random(1, #settings)]
+    randTable = getgenv().settings[math.random(1, #getgenv().settings)]
     local ohString2
-    if randTable.class == "Charm" or randTable.class == "Enchant" or randTable.class == "Potion" then
-        ohString2 = string.format("{\"id\":\"" .. randTable.item .. "\",\"tn\":%d}", randTable.tier or 1)
-    elseif randTable.class == "Pet" then
-        ohString2 = "{\"id\":\"" .. randTable.item .. "\""
-        if randTable.tier then
-            ohString2 = string.format(ohString2 .. ",\"tn\":%d", randTable.tier)
-        end
-        if randTable.shiny then
-            ohString2 = ohString2 .. ",\"sh\":" .. tostring(randTable.shiny)
-        end
-        ohString2 = ohString2 .. "}"
-    else
-        ohString2 = "{\"id\":\"" .. randTable.item .. "\""
-        if randTable.tier then
-            ohString2 = string.format(ohString2 .. ",\"tn\":%d", randTable.tier)
-        end
-        ohString2 = ohString2 .. "}"
-    end
-    print('looking for item: ' .. randTable.item)
-
-    local ohNil3 = nil
-    local ohBoolean4 = true
-    local info
-    pcall(function()
-        info = game:GetService("ReplicatedStorage").Network.TradingTerminal_Search:InvokeServer(
-            randTable.class, ohString2,
-            ohNil3,
-            ohBoolean4)
-    end)
-    if info == nil then
-        local info
-        repeat
-            pcall(function()
-                info = game:GetService("ReplicatedStorage").Network.TradingTerminal_Search:InvokeServer(
-                    randTable.class, ohString2,
-                    ohNil3,
-                    ohBoolean4)
-                task.wait(1)
-                randTable = settings[math.random(1, #settings)]
-                if not randTable.tier then
-                    ohString2 = "{\"id\":\"" .. randTable.item .. "\"}"
-                else
-                    ohString2 = string.format("{\"id\":\"" .. randTable.item .. "\",\"tn\":%d}", randTable.tier)
-                end
-            end)
-        until info ~= nil
-
-        task.wait(3)
-        game:GetService("TeleportService"):TeleportToPlaceInstance(info.place_id, info.job_id, game.Players.LocalPlayer)
-        writefile("butterTerminalFinder/hasHopped.txt", 'true')
-    else
-        game:GetService("TeleportService"):TeleportToPlaceInstance(info.place_id, info.job_id, game.Players.LocalPlayer)
-        writefile("butterTerminalFinder/hasHopped.txt", 'true')
-    end
-end
-
-if readfile("butterTerminalFinder/hasHopped.txt") == "false" then
-    infoHanlder()
-else
-    print("looking for booth")
-
-    for i, k in pairs(game.Players:GetPlayers()) do
-        suc, _ = pcall(function()
-            local f = e.getByOwnerId(k.UserId).Listings
-        end)
-        if suc then
-            if tpToBooth then
-                for a, s in pairs(workspace.__THINGS.Booths:GetChildren()) do
-                    if s.Info.BoothBottom.Frame.Top.Text:find(k.DisplayName) then
-                        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = s.Table.CFrame * CFrame.new(5, 0, 0)
-                    end
-                end
-            end
-
-            for i, v in pairs(e.getByOwnerId(k.UserId).Listings) do
-                if not v['Item'] then continue end
-                for n, l in pairs(settings) do
-                    local cost = v.DiamondCost
-                    local itemType = v.Item._data.id
-                    local amt = v.Item._data._am
-                    if amt ~= nil and cost ~= nil and money >= amt * cost then
-                        if cost <= l.maxPrice and itemType == l.item then
-                            if v.Item._data['tn'] then
-                                if tonumber(v.Item._data['tn']) ~= l.tier then
-                                    continue
-                                end
-                            end
-
-                            print('xd?')
-
-                            print(i)
-                            if not i then
-                                writefile("butterTerminalFinder/hasHopped.txt", "false")
-                                infoHanlder()
-                            else
-                                local ohTable2 = {
-                                    [i] = amt
-                                }
-
-                                game:GetService("ReplicatedStorage").Network.Booths_RequestPurchase:InvokeServer(
-                                    k.UserId,
-                                    ohTable2)
-                                webhook(itemType, amt, cost, k.DisplayName, (money - (cost * amt)))
-                                task.wait(2)
-                            end
-                        end
-                    else
-                        if amt ~= nil and cost ~= nil then
-                            local newAmt = math.floor(money / cost)
-                            if cost <= l.maxPrice and itemType == l.item then
-                                print(i)
-                                print('xd?')
-                                if not i then
-                                    writefile("butterTerminalFinder/hasHopped.txt", "false")
-                                    infoHanlder()
-                                else
-                                    local ohTable2 = {
-                                        [i] = newAmt
-                                    }
-
-                                    game:GetService("ReplicatedStorage").Network.Booths_RequestPurchase:InvokeServer(
-                                        k.UserId,
-                                        ohTable2)
-
-                                    webhook(itemType, amt, cost, k.DisplayName, (money - (cost * amt)))
-                                    task.wait(2)
-                                end
-                            end
-                        end
-                    end
-                end
-            end
-        end
-    end
-    task.wait(0.3)
-    print("looking thru files")
-    task.wait(2)
-    writefile("butterTerminalFinder/hasHopped.txt", "false")
-    while true do
-        infoHanlder()
-        task.wait(1)
-    end
-end

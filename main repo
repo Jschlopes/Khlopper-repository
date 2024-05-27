@@ -34,10 +34,10 @@ getgenv().Config = {
 
     Extra = {
     -- BE CAREFUL WITH THIS! WE HAVE NO WAY TO CHECK IF RAP IS MANIPULATED!
-      Huges = {Enabled=true, Percentage= "-90%", priceCap = 80000000}, -- Percentage = RAP Value -10%
+      Huges = {Enabled=false, Percentage= "-90%", priceCap = 80000000}, -- Percentage = RAP Value -10%
       Titanics = {Enabled=true, Percentage="-90%", priceCap = 500000000},
-      Exclusive = {Enabled=true, Percentage="-99%", priceCap = 300000},
-      Exclusive_Eggs = {Enabled=true, Percentage="-50%", priceCap = 60000000},
+      Exclusive = {Enabled=false, Percentage="-99%", priceCap = 300000},
+      Exclusive_Eggs = {Enabled=false, Percentage="-50%", priceCap = 60000000},
       Any_Item = {Enabled=false, Percentage="-80%", priceCap = 50000000} -- WARNING: this will snipe ANY item, aslong as it meets the RAP Value Criteria
     },
 

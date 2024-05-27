@@ -30,6 +30,10 @@ getgenv().Config = {
             Price = 220,
             Type = "Fruit"
         },
+     { Item = "Fruit Bundle",
+            Price = 700,
+            Type = "Misc"
+        },
     },
 
     Extra = {

@@ -30,6 +30,10 @@ getgenv().Config = {
             Price = 220,
             Type = "Fruit"
         },
+     { Item = "Hype Egg",
+            Price = 550000,
+            Type = "Lootbox"
+        },
      { Item = "Fruit Bundle",
             Price = 700,
             Type = "Misc"

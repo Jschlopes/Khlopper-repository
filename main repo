@@ -7,7 +7,7 @@ getgenv().Config = {
     -- If using Terminal hop, as it will check for items in order.
     Items = {
      { Item = "Gift Bag",
-            Price = 3300,
+            Price = 3330,
             Type = "Misc"
         },
      { Item = "Banana",

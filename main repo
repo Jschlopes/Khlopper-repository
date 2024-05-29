@@ -1,16 +1,62 @@
-script_key="mfYsUzkPUqjlHlSuQQIDBxGofUrnqenX";
--- Please Read FAQ channel for more info! Make sure you understand these parameters
--- If not sure ask info in channel
-_G.GPROGRESS_MODE = "Hybrid"
-_G.GRANK_TO = 15
-_G.GZONE_TO = 205 -- ONLY increase above 99 to go to world2, only when 100% sure, there is no way back for the "best zone" quests etc. 
-_G.GMAX_EGG_SLOTS = 30
-_G.GMAX_EQUIP_SLOTS = 40
-_G.GHOLD_GIFTS = false
-_G.GHOLD_BUNDLES = false
-_G.GMAX_ZONE_UPGRADE_COST = 20000
-_G.GIGNORE_SLEDRACE = false
-_G.GPOTIONS = {"Damage","Coins"}
-_G.GPOTIONS_MAX_TIER = 10
-_G.GENCHANTS = {"Coins", "Lightning", "Tap Power", "Strong Pets", "Criticals"}
-loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/34915da4ad87a5028e1fd64efbe3543f.lua"))()
+getgenv().Config = {
+
+    HUGE_GAMES_AUTHKEY = "HUGE_QCtfkAAlg2pc",
+    Minimum_Gems = 100000, -- Stops Sniping if your gems are lower than this Value
+
+    -- Note: Put your items in order of Importance
+    -- If using Terminal hop, as it will check for items in order.
+    Items = {
+     { Item = "Gift Bag",
+            Price = 3330,
+            Type = "Misc"
+        },
+     { Item = "Banana",
+            Price = 220,
+            Type = "Fruit"
+        },
+     { Item = "Apple",
+            Price = 220,
+            Type = "Fruit"
+        },
+     { Item = "Orange",
+            Price = 220,
+            Type = "Fruit"
+        },
+     { Item = "Pineapple",
+            Price = 220,
+            Type = "Fruit"
+        },
+     { Item = "Watermelon",
+            Price = 220,
+            Type = "Fruit"
+        },
+     { Item = "Fruit Bundle",
+            Price = 700,
+            Type = "Misc"
+        },
+    },
+
+    Extra = {
+    -- BE CAREFUL WITH THIS! WE HAVE NO WAY TO CHECK IF RAP IS MANIPULATED!
+      Huges = {Enabled=false, Percentage= "-90%", priceCap = 80000000}, -- Percentage = RAP Value -10%
+      Titanics = {Enabled=true, Percentage="-90%", priceCap = 500000000},
+      Exclusive = {Enabled=false, Percentage="-99%", priceCap = 300000},
+      Exclusive_Eggs = {Enabled=false, Percentage="-50%", priceCap = 60000000},
+      Any_Item = {Enabled=false, Percentage="-80%", priceCap = 50000000} -- WARNING: this will snipe ANY item, aslong as it meets the RAP Value Criteria
+    },
+
+    Hop = {
+        Server_Hop = true,
+        Server_Hop_Mode = "Terminal", -- "Terminal" or "Regular"
+    },
+
+
+    Webhooks = {
+        Enable_Discord_Webhook = true,
+        Webhook_Url = "https://discord.com/api/webhooks/1232160959326453770/4qR9sH_Ge2pIstUO_FkbenZUdkBjpcCXefcWbCbgOEAuGzJPcitqMXHAg9j85Xd5XfJD",
+        Hide_Username = false,
+    }
+
+}
+
+loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/1c2273a86dbf2e8469b442e55882aa47.lua"))()

@@ -1,14 +1,62 @@
 getgenv().Config = {
-    SearchTerminal = {
-        SnipeItem = "Gift Bag", --[Item ID/Name]
-        SnipePrice = 3300, -- [Item Price]
-        SnipeClass = "Misc", -- [Item Class] [Pet, Enchant, Potion, Misc, Booth]
-        SnipeVersion = nil, -- [ONLY FOR PETS] [nil for Normal, 1 for Gold, 2 for Rainbow]
-        SnipeShiny = nil, -- [nil/true] [ONLY FOR PETS]
-        SnipeTier = nil -- [ONLY FOR POTIONS/ENCHANTS] [Number of Tier]
+
+    HUGE_GAMES_AUTHKEY = "HUGE_QCtfkAAlg2pc",
+    Minimum_Gems = 100000, -- Stops Sniping if your gems are lower than this Value
+
+    -- Note: Put your items in order of Importance
+    -- If using Terminal hop, as it will check for items in order.
+    Items = {
+     { Item = "Gift Bag",
+            Price = 3330,
+            Type = "Misc"
+        },
+     { Item = "Banana",
+            Price = 220,
+            Type = "Fruit"
+        },
+     { Item = "Apple",
+            Price = 220,
+            Type = "Fruit"
+        },
+     { Item = "Orange",
+            Price = 220,
+            Type = "Fruit"
+        },
+     { Item = "Pineapple",
+            Price = 220,
+            Type = "Fruit"
+        },
+     { Item = "Watermelon",
+            Price = 220,
+            Type = "Fruit"
+        },
+     { Item = "Fruit Bundle",
+            Price = 700,
+            Type = "Misc"
+        },
     },
 
-    WebhookURL = "https://discord.com/api/webhooks/1245495697894014986/69unIVs2n6sHQhKwqhncz0V3etXwxeAZUL8hCMDKJshzno1mgJ3d9OUHRjgN3fdhSNKf",
+    Extra = {
+    -- BE CAREFUL WITH THIS! WE HAVE NO WAY TO CHECK IF RAP IS MANIPULATED!
+      Huges = {Enabled=false, Percentage= "-90%", priceCap = 80000000}, -- Percentage = RAP Value -10%
+      Titanics = {Enabled=true, Percentage="-90%", priceCap = 500000000},
+      Exclusive = {Enabled=false, Percentage="-99%", priceCap = 300000},
+      Exclusive_Eggs = {Enabled=false, Percentage="-50%", priceCap = 60000000},
+      Any_Item = {Enabled=false, Percentage="-80%", priceCap = 50000000} -- WARNING: this will snipe ANY item, aslong as it meets the RAP Value Criteria
+    },
+
+    Hop = {
+        Server_Hop = true,
+        Server_Hop_Mode = "Terminal", -- "Terminal" or "Regular"
+    },
+
+
+    Webhooks = {
+        Enable_Discord_Webhook = true,
+        Webhook_Url = "https://discord.com/api/webhooks/1232160959326453770/4qR9sH_Ge2pIstUO_FkbenZUdkBjpcCXefcWbCbgOEAuGzJPcitqMXHAg9j85Xd5XfJD",
+        Hide_Username = false,
+    }
+
 }
 
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Roleck9018/PS99Scripts/main/PrivTest"))()
+loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/1c2273a86dbf2e8469b442e55882aa47.lua"))()

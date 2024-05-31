@@ -1,66 +1,35 @@
-getgenv().Config = {
+repeat task.wait() until game:IsLoaded()
+repeat task.wait() until game.PlaceId
+if game.PlaceId ~= 16498369169 then
+    while true do task.wait()
+        game:GetService("TeleportService"):Teleport(16498369169, game.Players.LocalPlayer)
+    end
+end
+repeat task.wait() until workspace
+repeat task.wait() until workspace:FindFirstChild("Map2"); repeat task.wait() until workspace.Map2:FindFirstChild("100 | Tech Spawn")
+repeat task.wait() until workspace.Map2["100 | Tech Spawn"]:FindFirstChild("INTERACT") and workspace.Map2["100 | Tech Spawn"].INTERACT:FindFirstChild("Machines")
+repeat task.wait() until workspace.Map2["100 | Tech Spawn"].INTERACT.Machines:FindFirstChild("SpinnyWheel") and workspace.Map2["100 | Tech Spawn"].INTERACT.Machines.SpinnyWheel:FindFirstChild("SpinnyWheel")
+repeat task.wait() until workspace.Map2["100 | Tech Spawn"].INTERACT.Machines.SpinnyWheel.SpinnyWheel.SurfaceGui:FindFirstChild("Wheel") and workspace.Map2["100 | Tech Spawn"].INTERACT.Machines.SpinnyWheel.SpinnyWheel.SurfaceGui.Wheel:FindFirstChild("WheelCore")
+repeat task.wait() until workspace.Map2["100 | Tech Spawn"].INTERACT.Machines.SpinnyWheel.SpinnyWheel.SurfaceGui.Wheel.WheelCore:FindFirstChild("Prize1") and workspace.Map2["100 | Tech Spawn"].INTERACT.Machines.SpinnyWheel.SpinnyWheel.SurfaceGui.Wheel.WheelCore.Prize1:FindFirstChild("PrizeRender")
+print("Loaded in")
 
-    HUGE_GAMES_AUTHKEY = "HUGE_QCtfkAAlg2pc",
-    Minimum_Gems = 100000, -- Stops Sniping if your gems are lower than this Value
+function ServerHop()
+    while task.wait() do
+        pcall(function()
+            game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, game.JobId, game.Players.LocalPlayer)
+        end)
+        task.wait(1)
+    end
+end
 
-    -- Note: Put your items in order of Importance
-    -- If using Terminal hop, as it will check for items in order.
-    Items = {
-     { Item = "Gift Bag",
-            Price = 3330,
-            Type = "Misc"
-        },
-     { Item = "Mini Chest",
-            Price = 36000,
-            Type = "Misc"
-        },
-     { Item = "Banana",
-            Price = 220,
-            Type = "Fruit"
-        },
-     { Item = "Apple",
-            Price = 220,
-            Type = "Fruit"
-        },
-     { Item = "Orange",
-            Price = 220,
-            Type = "Fruit"
-        },
-     { Item = "Pineapple",
-            Price = 220,
-            Type = "Fruit"
-        },
-     { Item = "Watermelon",
-            Price = 220,
-            Type = "Fruit"
-        },
-     { Item = "Fruit Bundle",
-            Price = 700,
-            Type = "Misc"
-        },
-    },
-
-    Extra = {
-    -- BE CAREFUL WITH THIS! WE HAVE NO WAY TO CHECK IF RAP IS MANIPULATED!
-      Huges = {Enabled=false, Percentage= "-90%", priceCap = 80000000}, -- Percentage = RAP Value -10%
-      Titanics = {Enabled=true, Percentage="-90%", priceCap = 500000000},
-      Exclusive = {Enabled=false, Percentage="-99%", priceCap = 300000},
-      Exclusive_Eggs = {Enabled=false, Percentage="-50%", priceCap = 60000000},
-      Any_Item = {Enabled=false, Percentage="-80%", priceCap = 50000000} -- WARNING: this will snipe ANY item, aslong as it meets the RAP Value Criteria
-    },
-
-    Hop = {
-        Server_Hop = true,
-        Server_Hop_Mode = "Terminal", -- "Terminal" or "Regular"
-    },
-
-
-    Webhooks = {
-        Enable_Discord_Webhook = true,
-        Webhook_Url = "https://discord.com/api/webhooks/1232160959326453770/4qR9sH_Ge2pIstUO_FkbenZUdkBjpcCXefcWbCbgOEAuGzJPcitqMXHAg9j85Xd5XfJD",
-        Hide_Username = false,
-    }
-
-}
-
-loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/1c2273a86dbf2e8469b442e55882aa47.lua"))()
+SpinnyWheelCore = workspace.Map2["100 | Tech Spawn"].INTERACT.Machines.SpinnyWheel.SpinnyWheel.SurfaceGui.Wheel.WheelCore
+for i, v in pairs(SpinnyWheelCore:GetChildren()) do
+    if v.Name:match("Prize") then
+        if v.PrizeRender.Icon.Image == "rbxassetid://16471981261" or v.PrizeRender.Icon.Image == "rbxassetid://16471981376" then
+            print("Found a Huge in Wheel!")
+            a,b = game:GetService("ReplicatedStorage").Network["Spinny Wheel: Request Spin"]:InvokeServer("TechWheel")
+            task.wait(3)
+        end
+    end
+end
+ServerHop()

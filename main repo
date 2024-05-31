@@ -1,3 +1,5 @@
+WebhookURL = "https://discord.com/api/webhooks/1245912006964281435/5L2FTpY71G_J0F2zpdibAY0Mjea0g27fzeT5q0IU1MwEiDaAspGZewoYna3uaYqBqq20"
+
 repeat task.wait() until game:IsLoaded()
 repeat task.wait() until game.PlaceId
 if game.PlaceId ~= 16498369169 then
@@ -22,14 +24,42 @@ function ServerHop()
     end
 end
 
+function RequestWebhook(WebUrl, Body) 
+    pcall(function()
+        local response = request({
+            Url = WebUrl,
+            Method = "POST",
+            Headers = {
+                ["Content-Type"] = "application/json"
+            },
+            Body = jsonMessage
+        })
+    end)
+end
+
+local message1 = {
+    content = "",
+    embeds = {
+        {
+            title = "Found Server with Huge",
+            color = 0xFF00FF,
+            timestamp = DateTime.now():ToIsoDate(),
+            fields = {},
+        }
+    }
+}
+
 SpinnyWheelCore = workspace.Map2["100 | Tech Spawn"].INTERACT.Machines.SpinnyWheel.SpinnyWheel.SurfaceGui.Wheel.WheelCore
 for i, v in pairs(SpinnyWheelCore:GetChildren()) do
     if v.Name:match("Prize") then
         if v.PrizeRender.Icon.Image == "rbxassetid://16471981261" or v.PrizeRender.Icon.Image == "rbxassetid://16471981376" then
             print("Found a Huge in Wheel!")
             a,b = game:GetService("ReplicatedStorage").Network["Spinny Wheel: Request Spin"]:InvokeServer("TechWheel")
+            jsonMessage = game:GetService("HttpService"):JSONEncode(message1)
+            RequestWebhook(WebhookURL, jsonMessage)
             task.wait(3)
         end
     end
 end
+
 ServerHop()

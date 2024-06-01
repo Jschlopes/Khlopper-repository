@@ -14,30 +14,6 @@ getgenv().Config = {
             Price = 36000,
             Type = "Misc"
         },
-     { Item = "Banana",
-            Price = 220,
-            Type = "Fruit"
-        },
-     { Item = "Apple",
-            Price = 220,
-            Type = "Fruit"
-        },
-     { Item = "Orange",
-            Price = 220,
-            Type = "Fruit"
-        },
-     { Item = "Pineapple",
-            Price = 220,
-            Type = "Fruit"
-        },
-     { Item = "Watermelon",
-            Price = 220,
-            Type = "Fruit"
-        },
-     { Item = "Fruit Bundle",
-            Price = 700,
-            Type = "Misc"
-        },
     },
 
     Extra = {

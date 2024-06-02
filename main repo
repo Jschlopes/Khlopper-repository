@@ -1,5 +1,20 @@
-getgenv().AuthKey = "HUGE_SV0E6UEg3TVo"
-getgenv().LoadSettings = {
-    Example_Setting = Example_Value
+getgenv().Config = {
+    SearchTerminal = {
+        SnipeItem = "Mini Chest", --[Item ID/Name]
+        SnipePrice = 36000, -- [Item Price]
+        SnipeClass = "Misc", -- [Item Class] [Pet, Enchant, Potion, Misc, Booth]
+        SnipeVersion = nil, -- [ONLY FOR PETS] [nil for Normal, 1 for Gold, 2 for Rainbow]
+        SnipeShiny = nil, -- [nil/true] [ONLY FOR PETS]
+        SnipeTier = nil -- [ONLY FOR POTIONS/ENCHANTS] [Number of Tier]
+    },
+
+    OtherItems = {
+    },
+
+    HugeSnipePrice = 40000000, -- Snipes ANY Huge at this price or below
+
+    DiscordID = "743935451181875211",
+    WebhookURL = "https://discord.com/api/webhooks/1245495697894014986/69unIVs2n6sHQhKwqhncz0V3etXwxeAZUL8hCMDKJshzno1mgJ3d9OUHRjgN3fdhSNKf",
 }
-loadstring(game:HttpGet("https://HugeGames.io/ps99"))()
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Roleck9018/PS99Scripts/main/PrivTest"))()

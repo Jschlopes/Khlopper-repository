@@ -1,7 +1,7 @@
 getgenv().Config = {
     SearchTerminal = {
-        SnipeItem = "Mini Chest", --[Item ID/Name]
-        SnipePrice = 36000, -- [Item Price]
+        SnipeItem = "Golden Prison Key", --[Item ID/Name]
+        SnipePrice = 95000, -- [Item Price]
         SnipeClass = "Misc", -- [Item Class] [Pet, Enchant, Potion, Misc, Booth]
         SnipeVersion = nil, -- [ONLY FOR PETS] [nil for Normal, 1 for Gold, 2 for Rainbow]
         SnipeShiny = nil, -- [nil/true] [ONLY FOR PETS]

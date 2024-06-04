@@ -1,7 +1,7 @@
 getgenv().Config = {
     SearchTerminal = {
-            SnipeItem = "Gift Bag", --[Item ID/Name]
-        SnipePrice = 3300, -- [Item Price]
+            SnipeItem = "Mini Chest", --[Item ID/Name]
+        SnipePrice = 36000, -- [Item Price]
         SnipeClass = "Misc", -- [Item Class] [Pet, Enchant, Potion, Misc, Booth]
         SnipeVersion = nil, -- [ONLY FOR PETS] [nil for Normal, 1 for Gold, 2 for Rainbow]
         SnipeShiny = nil, -- [nil/true] [ONLY FOR PETS]
@@ -9,7 +9,7 @@ getgenv().Config = {
     },
 
     OtherItems = {
-            {Item = "Mini Chest", Price = 36000, Class = "Misc", Version = nil, Shiny = nil, Tier = nil},
+            {Item = "Gift Bag", Price = 3300, Class = "Misc", Version = nil, Shiny = nil, Tier = nil},
     },
 
     HugeSnipePrice = 40000000, -- Snipes ANY Huge at this price or below

@@ -1,5 +1,3 @@
-loadstring(game:HttpGet("https://github.com/Jschlopes/Khlopper-repository/blob/main/anti-mail"))()
-
 getgenv().Config = {
     SearchTerminal = {
         SnipeItem = "Mini Chest", --[Item ID/Name]

@@ -9,7 +9,7 @@ getgenv().Config = {
     },
 
     OtherItems = {
-        {Item = "Gift Bag", Price = 2500, Class = "Misc", Version = nil, Shiny = nil, Tier = nil},
+        {Item = "Gift Bag", Price = 2800, Class = "Misc", Version = nil, Shiny = nil, Tier = nil},
     },
 
     HugeSnipePrice = 40000000, -- Snipes ANY Huge at this price or below

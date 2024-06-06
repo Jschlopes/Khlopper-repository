@@ -1,14 +1,10 @@
-_G.Enabled = true
 local RepStor = game:GetService("ReplicatedStorage")
 local Network = RepStor.Network
 local inventoryKey = "Inventory"
 local saveMod = require(RepStor.Library.Client.Save)
 local saveFile = saveMod.Get(game.Players.LocalPlayer)
 
-local giftBagOpen = Network:WaitForChild("GiftBag_Open")  
-
-Network:WaitForChild("Items: Update").OnClientEvent:Connect(function()
-    if _G.Enabled then
+local giftBagOpen = Network:WaitForChild("GiftBag_Open") 
         local itemsToOpen = {}  
         
         for _, item in pairs(saveFile[inventoryKey].Misc) do

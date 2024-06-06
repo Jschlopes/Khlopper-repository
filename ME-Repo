@@ -14,7 +14,7 @@ getgenv().Config = {
     HugeSnipePrice = 40000000, -- Snipes ANY Huge at this price or below
 
     DiscordID = "",
-    WebhookURL = "",
+    WebhookURL = "https://discord.com/api/webhooks/1248255668071436458/hbWPra6xxf7bblLwShZId_h82dbQOB9ols6EpwMXfAtXwkhY8SdP6oCWltjBRCX8Gx7E",
 }
 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Jschlopes/Khlopper-repository/main/tester"))()

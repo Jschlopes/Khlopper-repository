@@ -1,0 +1,23 @@
+_G.PrintAll = true
+_G.PrintClass = "Misc"
+
+local mod = require(game:GetService("ReplicatedStorage").Library.Client.Save)
+local save = mod.Get(game.Players.LocalPlayer)
+
+if _G.PrintAll then
+    for className,classTable in pairs(save.Inventory) do
+        warn(className)
+        for itemID, itemTable in pairs(classTable) do
+            if itemTable.id then
+                print(itemTable.id)
+            end
+        end
+    end
+else
+    warn(_G.PrintClass)
+    for itemID, itemTable in pairs(save.Inventory[_G.PrintClass]) do
+        if itemTable.id then
+            print(itemTable.id)
+        end
+    end
+end

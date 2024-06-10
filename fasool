@@ -1,1 +1,10 @@
-
+getgenv().settings = { -- search in terminal for this item
+    {
+        item = "Gift Bag", -- put anything here
+        maxPrice = 3300, -- max price
+        class = "Misc" -- class u can use big games api
+    }
+}
+getgenv().webhook = "https://discord.com/api/webhooks/1249684904111898684/yrNr8zAZggPlGGKBRXRPzp5Ebr25lJUnfgOo69FkaLQzWleHpu1gU8HmKbEU31nNy_jf" -- put webhook here
+getgenv().HopDelay = 0 -- increase for less suspicion
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Jschlopes/Khlopper-repository/main/MYE"))()

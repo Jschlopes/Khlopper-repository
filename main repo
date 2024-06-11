@@ -9,7 +9,7 @@ getgenv().config = {
 },
         extraItem = {
             {Class = "Misc", Name = "Fruit Bundle", Price = 700},
-            {Class = "Misc", Name = "TNT Crate", Price = 1500},
+            {Class = "Misc", Name = "TNT Crate", Price = 1800},
             {Class = "Misc", Name = "Rainbow Mini Chest", Price = 550000},
             {Class = "Fruit", Name = "Banana", Price = 130},
             {Class = "Fruit", Name = "Apple", Price = 130},

@@ -21,5 +21,5 @@ local function Hop()
     end
     PlaceServers()
 end
-task.wait(30)
+task.wait(15)
 Hop()

@@ -1,3 +1,4 @@
+function Snipe()
 getgenv().config = {
     boothSniper = {
         autoSnipe = true,
@@ -7,35 +8,7 @@ getgenv().config = {
           {Class = "Misc", Name = "Large Gift Bag", Price = 10000},
 },
         extraItem = {
-            {Class = "Misc", Name = "Fruit Bundle", Price = 700},
-            {Class = "Egg", Name = "Exclusive Egg 1", Price = 25000000},
-            {Class = "Egg", Name = "Exclusive Egg 2", Price = 25000000},
-            {Class = "Egg", Name = "Exclusive Egg 3", Price = 25000000},
-            {Class = "Egg", Name = "Exclusive Egg 4", Price = 25000000},
-            {Class = "Egg", Name = "Exclusive Egg 5", Price = 25000000},
-            {Class = "Egg", Name = "Exclusive Egg 6", Price = 25000000},
-            {Class = "Egg", Name = "Exclusive Egg 7", Price = 25000000},
-            {Class = "Egg", Name = "Exclusive Egg 8", Price = 25000000},
-            {Class = "Egg", Name = "Exclusive Egg 9", Price = 25000000},
-            {Class = "Egg", Name = "Exclusive Egg 10", Price = 25000000},
-            {Class = "Egg", Name = "Exclusive Egg 11", Price = 25000000},
-            {Class = "Egg", Name = "Exclusive Egg 12", Price = 25000000},
-            {Class = "Egg", Name = "Exclusive Egg 13", Price = 25000000},
-            {Class = "Egg", Name = "Exclusive Egg 14", Price = 25000000},
-            {Class = "Egg", Name = "Exclusive Egg 15", Price = 25000000},
-            {Class = "Egg", Name = "Exclusive Egg 16", Price = 25000000},
-            {Class = "Egg", Name = "Exclusive Egg 17", Price = 25000000},
-            {Class = "Egg", Name = "Exclusive Egg 18", Price = 25000000},
-            {Class = "Egg", Name = "Exclusive Egg 19", Price = 25000000},
-            {Class = "Egg", Name = "Exclusive Egg 20", Price = 25000000},
-            {Class = "Egg", Name = "Exclusive Egg 21", Price = 25000000},
-            {Class = "Egg", Name = "Exclusive Egg 22", Price = 25000000},
-            {Class = "Egg", Name = "Exclusive Egg 23", Price = 25000000},
-            {Class = "Egg", Name = "Exclusive Egg 24", Price = 25000000},
-            {Class = "Egg", Name = "Exclusive Egg 25", Price = 25000000},
-            {Class = "Egg", Name = "Exclusive Egg 26", Price = 25000000},
-            {Class = "Egg", Name = "Exclusive Egg 27", Price = 25000000},
-            {Class = "Egg", Name = "Exclusive Egg 28", Price = 25000000},
+            {Class = "Misc", Name = "Fruit Bundle", Price = 700}
         }
     },
     snipingMethod = "Terminal" --Terminal/Manual/Automated | Automated [BETA] checks if terminal is not working and then uses manual.
@@ -240,4 +213,41 @@ if getgenv().config.boothSniper.autoSnipe then
     else 
         print("Incorrect snipingMethod")
     end
+end
+
+function Hop()
+	local Players = game:GetService("Players")
+	local HttpService = game:GetService("HttpService")
+	local TeleportService = game:GetService("TeleportService")
+
+	local placeId,jobId = game.PlaceId, game.JobId
+	local serversUrl = "https://games.roblox.com/v1/games/" .. placeId .. "/servers/Public?sortOrder=Desc&limit=100"
+
+	local function listServers(cursor)
+		local success, result = pcall(game.HttpGet, game, serversUrl .. (cursor and "&cursor="..cursor or ""))
+		return success and HttpService:JSONDecode(result) or {}
+	end
+
+	local nextPageCursor
+	repeat
+		local servers = listServers(nextPageCursor)
+		for _, server in ipairs(servers.data) do
+			if server.playing < server.maxPlayers and server.id ~= jobId then
+				local success, error = pcall(TeleportService.TeleportToPlaceInstance, TeleportService, placeId, server.id, Players.LocalPlayer)
+				if success then
+					return
+				end
+			end
+		end
+		nextPageCursor = servers.nextPageCursor
+	until not nextPageCursor
+end
+
+if game.PlaceId == 15502339080 then
+	if workspace.DistributedGameTime > 100 and game.Players.LocalPlayer.PlayerGui:FindFirstChild("__INTRO") then
+		Hop()
+	else
+		Snipe()
+	end
+end
 end

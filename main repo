@@ -5,7 +5,7 @@ getgenv().config = {
             {Class = "Misc", Name = "Gift Bag", Price = 3300},
             {Class = "Misc", Name = "Mini Chest", Price = 36000},
             {Class = "Misc", Name = "Large Gift Bag", Price = 10000},
-            {Class = "Misc", Name = "Mini Pinata", Price = 30000},
+            {Class = "Misc", Name = "Mini Pinata", Price = 35000},
 },
         extraItem = {
             {Class = "Misc", Name = "Fruit Bundle", Price = 700},

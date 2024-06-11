@@ -8,6 +8,16 @@ getgenv().config = {
 },
         extraItem = {
             {Class = "Misc", Name = "Fruit Bundle", Price = 700},
+            {Class = "Misc", Name = "Rainbow Mini Chest", Price = 300000},
+            {Class = "Misc", Name = "Mini Pinata", Price = 20000},
+            {Class = "Fruit", Name = "Banana", Price = 130},
+            {Class = "Fruit", Name = "Apple", Price = 130},
+            {Class = "Fruit", Name = "Pineapple", Price = 130},
+            {Class = "Fruit", Name = "Orange", Price = 130},
+            {Class = "Fruit", Name = "Watermelon", Price = 130},
+            {Class = "Enchant", Name = "Boss Chest Mimic", Price = 150000000},
+            {Class = "Enchant", Name = "Super Maget", Price = 300000000},
+            {Class = "Enchant", Name = "Superior Chest Mimic", Price = 375000000},,
             {Class = "Egg", Name = "Exclusive Egg 1", Price = 25000000},
             {Class = "Egg", Name = "Exclusive Egg 2", Price = 25000000},
             {Class = "Egg", Name = "Exclusive Egg 3", Price = 25000000},
@@ -36,7 +46,7 @@ getgenv().config = {
             {Class = "Egg", Name = "Exclusive Egg 26", Price = 25000000},
             {Class = "Egg", Name = "Exclusive Egg 27", Price = 25000000},
             {Class = "Egg", Name = "Exclusive Egg 28", Price = 25000000},
-        }
+         }
     },
     snipingMethod = "Terminal" --Terminal/Manual/Automated | Automated [BETA] checks if terminal is not working and then uses manual.
 }

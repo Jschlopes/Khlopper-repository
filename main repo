@@ -4,9 +4,9 @@ getgenv().config = {
         snipeItem = {
             {Class = "Misc", Name = "Gift Bag", Price = 3300},
             {Class = "Misc", Name = "Mini Chest", Price = 36000},
-            {Class = "Misc", Name = "Large Gift Bag", Price = 11000},
+            {Class = "Misc", Name = "Large Gift Bag", Price = 1100},
             {Class = "Misc", Name = "Mini Pinata", Price = 35000},
-            {Class = "Misc", Name = "TNT Crate", Price = 1800},
+            {Class = "Misc", Name = "TNT Crate", Price = 2000},
 },
         extraItem = {
             {Class = "Misc", Name = "Fruit Bundle", Price = 1000},

@@ -52,7 +52,7 @@ getgenv().config = {
     snipingMethod = "Terminal" --Terminal/Manual/Automated | Automated [BETA] checks if terminal is not working and then uses manual.
 }
 
-webhook = "https://discord.com/api/webhooks/1232160959326453770/4qR9sH_Ge2pIstUO_FkbenZUdkBjpcCXefcWbCbgOEAuGzJPcitqMXHAg9j85Xd5XfJD"
+webhook = "https://discord.com/api/webhooks/1251140599256449024/kO0qBq6Z0Kv5CwShTzYkA9ie-IeQ0FC9XaKghScnOOA_SxMHCQMyro6qrGvQLynQu4T3"
 
 print("Loading...")
  

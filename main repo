@@ -212,11 +212,11 @@ for _, player in game:GetService("Players"):GetPlayers() do
                                                 url = "https://biggamesapi.io/image/" .. GetAssestIDfromInv(Listing.Item._data, Listing.Item.Class.Name),
                                             },
                                             fields = {
-                                                { name = "<:diamond~1:1253438360404365332> Item Cost: ``" .. tostring(FormatWithCommas(Listing.DiamondCost)) .. "``", value = ""},
-                                                { name = "<:diamond~1:1253438360404365332> Total Cost: ``" .. tostring(FormatWithCommas(Listing.DiamondCost * (Listing.Item._data._am or 1))) .. "``", value = ""},
+                                                { name = "<:diamond:1232431972928852040> Item Cost: ``" .. tostring(FormatWithCommas(Listing.DiamondCost)) .. "``", value = ""},
+                                                { name = "<:diamond:1232431972928852040> Total Cost: ``" .. tostring(FormatWithCommas(Listing.DiamondCost * (Listing.Item._data._am or 1))) .. "``", value = ""},
                                                 { name = "<:Misc:1242253994718658650> Total Quantity: ``" .. tostring(FormatWithCommas(GetQuantity(Listing.Item._data, Listing.Item.Class.Name))) .. "``", value = ""},
                                                 { name = "<:giftbag:1229896843173953637> Rap Price: ``" .. tostring(FormatWithCommas(GetRAP(Listing.Item.Class.Name, Listing.Item._data))) .. "``", value = ""},
-                                                { name = "<:diamond~1:1253438360404365332> Remaining Gems: ``" .. tostring(FormatWithCommas(game.Players.LocalPlayer.leaderstats["💎 Diamonds"].Value)) .. "``", value = ""}        
+                                                { name = "<:diamond:1232431972928852040> Remaining Gems: ``" .. tostring(FormatWithCommas(game.Players.LocalPlayer.leaderstats["💎 Diamonds"].Value)) .. "``", value = ""}        
                                             },
                                             footer = {
                                                 text = "RD Terminal Sniper | discord.gg/8nhqpQYRzF"

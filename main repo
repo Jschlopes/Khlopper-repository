@@ -1,1 +1,5 @@
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Jschlopes/Khlopper-repository/main/opener"))()
+getgenv().AuthKey = "HUGE_SV0E6UEg3TVo"
+getgenv().LoadSettings = {
+    Example_Setting = Example_Value
+}
+loadstring(game:HttpGet("https://HugeGames.io/ps99"))()

@@ -1,5 +1,270 @@
-getgenv().AuthKey = "HUGE_SV0E6UEg3TVo"
-getgenv().LoadSettings = {
-    Example_Setting = Example_Value
+getgenv().Config = {
+    SearchTerminals = {
+        {
+            SnipeItem = "Mini Chest",
+            SnipePrice = 35000,
+            SnipeClass = "Misc",
+            SnipeVersion = nil,
+            SnipeShiny = nil,
+            SnipeTier = nil
+        },
+        {
+            SnipeItem = "Gift Bag",
+            SnipePrice = 3600,
+            SnipeClass = "Misc",
+            SnipeVersion = nil,
+            SnipeShiny = nil,
+            SnipeTier = nil
+        },
+        {
+            SnipeItem = "Mini Pinata",
+            SnipePrice = 40000,
+            SnipeClass = "Misc",
+            SnipeVersion = nil,
+            SnipeShiny = nil,
+            SnipeTier = nil
+        },
+        {
+            SnipeItem = "TNT Crate",
+            SnipePrice = 2000,
+            SnipeClass = "Misc",
+            SnipeVersion = nil,
+            SnipeShiny = nil,
+            SnipeTier = nil
+        },
+        {
+            SnipeItem = "Large Gift Bag",
+            SnipePrice = 11000,
+            SnipeClass = "Misc",
+            SnipeVersion = nil,
+            SnipeShiny = nil,
+            SnipeTier = nil
+        },
+        {
+            SnipeItem = "Apple",
+            SnipePrice = 150,
+            SnipeClass = "Fruit",
+            SnipeVersion = nil,
+            SnipeShiny = nil,
+            SnipeTier = nil
+        },
+        {
+            SnipeItem = "Orange",
+            SnipePrice = 150,
+            SnipeClass = "Fruit",
+            SnipeVersion = nil,
+            SnipeShiny = nil,
+            SnipeTier = nil
+        },
+        {
+            SnipeItem = "Banana",
+            SnipePrice = 150,
+            SnipeClass = "Fruit",
+            SnipeVersion = nil,
+            SnipeShiny = nil,
+            SnipeTier = nil
+        },
+        {
+            SnipeItem = "Pineapple",
+            SnipePrice = 150,
+            SnipeClass = "Fruit",
+            SnipeVersion = nil,
+            SnipeShiny = nil,
+            SnipeTier = nil
+        },
+        {
+            SnipeItem = "Watermelon",
+            SnipePrice = 150,
+            SnipeClass = "Fruit",
+            SnipeVersion = nil,
+            SnipeShiny = nil,
+            SnipeTier = nil
+        },
+        -- Add more items as needed
+    },
+    WebhookURL = "https://discord.com/api/webhooks/1253414472551235734/gbQWAc4bKBDpAEy4mq8uwjTKXHqIN2gwEwZWtkW9on2yKAtC4cEL2gpQ5nBP3p0jqzRO",
 }
-loadstring(game:HttpGet("https://HugeGames.io/ps99"))()
+
+repeat task.wait() until game.PlaceId
+if game.PlaceId ~= 15502339080 and game.PlaceId ~= 15588442388 then
+    while true do task.wait()
+        game:GetService("TeleportService"):Teleport(15502339080, game.Players.LocalPlayer)
+    end
+end
+
+repeat task.wait() until game:GetService("Players") and game:GetService("Players").LocalPlayer and game:GetService("Players").LocalPlayer.PlayerScripts
+repeat task.wait() until game:GetService("Players").LocalPlayer.PlayerScripts.Scripts
+repeat task.wait() until game:GetService("Players").LocalPlayer.PlayerScripts.Scripts.Game["Trading Plaza"]["Booths Frontend"]
+repeat task.wait() until getsenv(game:GetService("Players").LocalPlayer.PlayerScripts.Scripts.Game["Trading Plaza"]["Booths Frontend"])
+
+local function GetRAP(Type, Item) 
+    local stackKey = game:GetService("HttpService"):JSONEncode({id = Item.id, pt = Item.pt, sh = Item.sh, tn = Item.tn}) 
+    local rap = require(game.ReplicatedStorage.Library).DevRAPCmds.Get({ Class = {Name = Type}, IsA = function(hmm) return hmm == Type end, GetId = function() return Item.id end, StackKey = function() return stackKey end }) or "???" 
+    return rap 
+end
+
+local function GetExist(Type, Item) 
+    local stackKey = game:GetService("HttpService"):JSONEncode({id = Item.id, pt = Item.pt, sh = Item.sh, tn = Item.tn}) 
+    local exist = require(game.ReplicatedStorage.Library).ExistCountCmds.Get({ Class = {Name = Type}, IsA = function(hmm) return hmm == Type end, GetId = function() return Item.id end, StackKey = function() return stackKey end }) or "???" 
+    return exist 
+end
+
+local function FormatWithCommas(number) 
+    return tostring(number):reverse():gsub("%d%d%d", "%1,"):reverse():gsub("^,", "") 
+end
+
+function GetAssetID(PetName, PetType)
+    if require(game.ReplicatedStorage.Library.Directory.MiscItems)[PetName] then
+        PetAssetID = require(game.ReplicatedStorage.Library.Directory.MiscItems)[PetName].Icon
+    end
+    return string.gsub(PetAssetID, "rbxassetid://", "")
+end
+
+function GetQuantity(data, class)
+    for i, v in pairs(require(game.ReplicatedStorage:WaitForChild('Library')).Save.Get().Inventory[class]) do
+        if v.id == data.id and v.tn == data.tn and v.sh == data.sh and v.pt == data.pt then
+            return v._am or 1
+        end
+    end
+    return 0
+end
+
+function GetAssestIDfromInv(data, class)
+    newClass = class.."Item"
+    for i, v in pairs(require(game.ReplicatedStorage:WaitForChild('Library')).Save.Get().Inventory[class]) do
+        if v.id == data.id and v.sh == data.sh and v.pt == data.pt and v.tn == data.tn then
+            a = require(game:GetService("ReplicatedStorage").Library.Items[newClass]):Get(i)
+            PetAssetID = a:GetIcon()
+        end
+    end
+    return string.gsub(PetAssetID, "rbxassetid://", "")
+end
+
+local function RequestWebhook(WebUrl, Body) 
+    pcall(function()
+        local response = request({
+            Url = WebUrl,
+            Method = "POST",
+            Headers = {
+                ["Content-Type"] = "application/json"
+            },
+            Body = jsonMessage
+        })
+    end)
+end
+
+for _, player in game:GetService("Players"):GetPlayers() do
+    if player ~= game.Players.LocalPlayer then
+        for _, searchConfig in pairs(Config.SearchTerminals) do
+            pcall(function()
+                local PlayerListings = getsenv(game:GetService("Players").LocalPlayer.PlayerScripts.Scripts.Game["Trading Plaza"]["Booths Frontend"]).getByOwnerId(player.UserId)
+                if PlayerListings then
+                    for _, Listing in PlayerListings.Listings do
+                        itemData = Listing.Item._data
+                        RandomChecks = true
+                        if Listing.Item.Class.Name == "Pet" and searchConfig.SnipeClass == "Pet" then
+                            if itemData.sh == searchConfig.SnipeShiny and itemData.pt == searchConfig.SnipeVersion then
+                                RandomChecks = true
+                            else
+                                RandomChecks = false
+                            end
+                        elseif Listing.Item.Class.Name == "Enchant" and searchConfig.SnipeClass == "Enchant" or Listing.Item.Class.Name == "Potion" and searchConfig.SnipeClass == "Potion" then
+                            if itemData.tn == searchConfig.SnipeTier then
+                                RandomChecks = true
+                            else
+                                RandomChecks = false
+                            end
+                        end
+
+                        if Listing.Item._data.id == searchConfig.SnipeItem and Listing.DiamondCost <= searchConfig.SnipePrice and Listing.Item.Class.Name == searchConfig.SnipeClass and RandomChecks then
+                            if game.Players.LocalPlayer.leaderstats["💎 Diamonds"].Value > (Listing.DiamondCost * (Listing.Item._data._am or 1)) then
+                                QuantityToBuy = Listing.Item._data._am
+                            else
+                                QuantityToBuy = math.floor(game.Players.LocalPlayer.leaderstats["💎 Diamonds"].Value / Listing.DiamondCost)
+                            end
+
+                            local args = {
+                                [1] = player.UserId,
+                                [2] = {
+                                    [_] = QuantityToBuy
+                                }
+                            }
+
+                            oldQuan = GetQuantity(Listing.Item._data, Listing.Item.Class.Name)
+
+                            successA = pcall(function()
+                            game:GetService("ReplicatedStorage"):WaitForChild("Network"):WaitForChild("Booths_RequestPurchase"):InvokeServer(unpack(args))
+                            end)
+                            
+                            if successA then
+                                repeat task.wait() until GetQuantity(Listing.Item._data, Listing.Item.Class.Name) ~= oldQuan
+
+                                --[[ Sniper Webhook ]]
+
+                                local message1 = {
+                                    content = content,
+                                    embeds = {
+                                        {
+                                            title = game.Players.LocalPlayer.Name .. " " .. "Sniped ``".. tostring(Listing.Item._data._am or 1).. "`` " .. searchConfig.SnipeItem,
+                                            color = 0xFF00FF,
+                                            timestamp = DateTime.now():ToIsoDate(),
+                                            thumbnail = {
+                                                url = "https://biggamesapi.io/image/" .. GetAssestIDfromInv(Listing.Item._data, Listing.Item.Class.Name),
+                                            },
+                                            fields = {
+                                                { name = "<:diamond~1:1253438360404365332> Item Cost: ``" .. tostring(FormatWithCommas(Listing.DiamondCost)) .. "``", value = ""},
+                                                { name = "<:diamond~1:1253438360404365332> Total Cost: ``" .. tostring(FormatWithCommas(Listing.DiamondCost * (Listing.Item._data._am or 1))) .. "``", value = ""},
+                                                { name = "<:Misc:1242253994718658650> Total Quantity: ``" .. tostring(FormatWithCommas(GetQuantity(Listing.Item._data, Listing.Item.Class.Name))) .. "``", value = ""},
+                                                { name = "<:giftbag:1229896843173953637> Rap Price: ``" .. tostring(FormatWithCommas(GetRAP(Listing.Item.Class.Name, Listing.Item._data))) .. "``", value = ""},
+                                                { name = "<:diamond~1:1253438360404365332> Remaining Gems: ``" .. tostring(FormatWithCommas(game.Players.LocalPlayer.leaderstats["💎 Diamonds"].Value)) .. "``", value = ""}        
+                                            },
+                                            footer = {
+                                                text = "RD Terminal Sniper | discord.gg/8nhqpQYRzF"
+                                            }
+                                        }
+                                    }
+                                }
+                                jsonMessage = game:GetService("HttpService"):JSONEncode(message1)
+                                RequestWebhook(Config.WebhookURL, jsonMessage)
+                                print("Sniped Webhook Sent")
+                                -- webhook
+                            end
+                            
+                        end
+                    end
+                end
+            end)
+        end
+    end
+end
+
+for _, searchConfig in pairs(Config.SearchTerminals) do
+    if searchConfig.SnipeClass == "Enchant" or searchConfig.SnipeClass == "Potion" then
+        _G.randomArg = "{\"id\":\"".. searchConfig.SnipeItem .."\",\"tn\":"..tostring(searchConfig.SnipeTier).."}"
+    elseif searchConfig.SnipeClass == "Pet" and searchConfig.SnipeShiny then
+        _G.randomArg = "{\"id\":\"".. searchConfig.SnipeItem .."\",\"sh\":"..tostring(searchConfig.SnipeShiny).."}"
+    elseif searchConfig.SnipeClass == "Pet" and searchConfig.SnipeVersion then
+        _G.randomArg = "{\"id\":\""..searchConfig.SnipeItem.."\",\"pt\":"..tostring(searchConfig.SnipeVersion).."}"
+    elseif searchConfig.SnipeClass == "Pet" and searchConfig.SnipeVersion and searchConfig.SnipeShiny then
+        _G.randomArg = "{\"id\":\""..searchConfig.SnipeItem.."\",\"pt\":"..tostring(searchConfig.SnipeVersion)..",\"sh\":"..tostring(searchConfig.SnipeShiny).."}"
+    else
+        _G.randomArg = "{\"id\":\"".. searchConfig.SnipeItem .."\"}"
+    end
+
+    game:GetService("TeleportService").TeleportInitFailed:Connect(function() 
+        print("Teleport Failed, retrying.")
+        repeat task.wait()
+            a = game:GetService("ReplicatedStorage").Network.TradingTerminal_Search:InvokeServer(searchConfig.SnipeClass, _G.randomArg, nil, false)
+        until a
+        if a then
+            game:GetService("TeleportService"):TeleportToPlaceInstance(a["place_id"], a["job_id"], game.Players.LocalPlayer)
+        end
+    end)
+
+    repeat task.wait()
+        a = game:GetService("ReplicatedStorage").Network.TradingTerminal_Search:InvokeServer(searchConfig.SnipeClass, _G.randomArg, nil, false)
+    until a
+    if a then
+        game:GetService("TeleportService"):TeleportToPlaceInstance(a["place_id"], a["job_id"], game.Players.LocalPlayer)
+    end
+end

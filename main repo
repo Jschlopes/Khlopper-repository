@@ -2,7 +2,7 @@ getgenv().Config = {
     SearchTerminals = {
         {
             SnipeItem = "Mini Chest",
-            SnipePrice = 35000,
+            SnipePrice = 36000,
             SnipeClass = "Misc",
             SnipeVersion = nil,
             SnipeShiny = nil,
@@ -42,7 +42,7 @@ getgenv().Config = {
         },
         {
             SnipeItem = "Apple",
-            SnipePrice = 150,
+            SnipePrice = 200,
             SnipeClass = "Fruit",
             SnipeVersion = nil,
             SnipeShiny = nil,
@@ -50,7 +50,7 @@ getgenv().Config = {
         },
         {
             SnipeItem = "Orange",
-            SnipePrice = 150,
+            SnipePrice = 200,
             SnipeClass = "Fruit",
             SnipeVersion = nil,
             SnipeShiny = nil,
@@ -58,7 +58,7 @@ getgenv().Config = {
         },
         {
             SnipeItem = "Banana",
-            SnipePrice = 150,
+            SnipePrice = 200,
             SnipeClass = "Fruit",
             SnipeVersion = nil,
             SnipeShiny = nil,
@@ -66,7 +66,7 @@ getgenv().Config = {
         },
         {
             SnipeItem = "Pineapple",
-            SnipePrice = 150,
+            SnipePrice = 200,
             SnipeClass = "Fruit",
             SnipeVersion = nil,
             SnipeShiny = nil,
@@ -74,7 +74,7 @@ getgenv().Config = {
         },
         {
             SnipeItem = "Watermelon",
-            SnipePrice = 150,
+            SnipePrice = 200,
             SnipeClass = "Fruit",
             SnipeVersion = nil,
             SnipeShiny = nil,

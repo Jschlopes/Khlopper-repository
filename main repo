@@ -34,7 +34,7 @@ getgenv().Config = {
         },
         {
             SnipeItem = "Large Gift Bag",
-            SnipePrice = 11000,
+            SnipePrice = 10500,
             SnipeClass = "Misc",
             SnipeVersion = nil,
             SnipeShiny = nil,

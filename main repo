@@ -18,7 +18,7 @@ getgenv().Config = {
         },
         {
             SnipeItem = "Mini Pinata",
-            SnipePrice = 46000,
+            SnipePrice = 40000,
             SnipeClass = "Misc",
             SnipeVersion = nil,
             SnipeShiny = nil,

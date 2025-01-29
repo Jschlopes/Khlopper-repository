@@ -2,23 +2,12 @@ getgenv().config = {
     boothSniper = {
         autoSnipe = true,
         snipeItem = {
-            {Class = "Misc", Name = "Gift Bag", Price = 3300},
-            {Class = "Misc", Name = "Mini Chest", Price = 36000},
-            {Class = "Misc", Name = "Large Gift Bag", Price = 11000},
-            {Class = "Misc", Name = "Mini Pinata", Price = 10000},
-            {Class = "Misc", Name = "TNT Crate", Price = 1800},
+            {Class = "Misc", Name = "Gift Bag", Price = 2300},
+            {Class = "Misc", Name = "Mini Chest", Price = 25000},
+            {Class = "Misc", Name = "Large Gift Bag", Price = 9000},
+            {Class = "Misc", Name = "Mini Pinata", Price = 15000},
 },
         extraItem = {
-            {Class = "Misc", Name = "Fruit Bundle", Price = 1000},
-            {Class = "Misc", Name = "Rainbow Mini Chest", Price = 550000},
-            {Class = "Fruit", Name = "Banana", Price = 150},
-            {Class = "Fruit", Name = "Apple", Price = 150},
-            {Class = "Fruit", Name = "Pineapple", Price = 150},
-            {Class = "Fruit", Name = "Orange", Price = 150},
-            {Class = "Fruit", Name = "Watermelon", Price = 150},
-            {Class = "Enchant", Name = "Boss Chest Mimic", Price = 150000000},
-            {Class = "Enchant", Name = "Super Maget", Price = 300000000},
-            {Class = "Enchant", Name = "Superior Chest Mimic", Price = 375000000},
             {Class = "Egg", Name = "Exclusive Egg 1", Price = 25000000},
             {Class = "Egg", Name = "Exclusive Egg 2", Price = 25000000},
             {Class = "Egg", Name = "Exclusive Egg 3", Price = 25000000},
@@ -52,7 +41,7 @@ getgenv().config = {
     snipingMethod = "Terminal" --Terminal/Manual/Automated | Automated [BETA] checks if terminal is not working and then uses manual.
 }
 
-webhook = "https://discord.com/api/webhooks/1249684904111898684/yrNr8zAZggPlGGKBRXRPzp5Ebr25lJUnfgOo69FkaLQzWleHpu1gU8HmKbEU31nNy_jf"
+webhook = "https://discord.com/api/webhooks/1277207508397719614/nbtos8W_jEkWA_pgtEoIBJ_EsMvF8wyO6qPLDh_cOEV4SJnoIstM1Vv7v1-FTn88a3kl"
 
 print("Loading...")
  

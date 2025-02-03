@@ -10,7 +10,7 @@ _G.ZapHubBoothsSniperSettings = {
         TitanicPet = {Enabled = true, PercentageProfit = "1", MaxPrice = 4500000000},
         HugePet = {Enabled = false, PercentageProfit = "10", MaxPrice = 17000000},
         AnyItem = {Enabled = false, PercentageProfit = "100", MaxPrice = 1000000},
-            {Item = "Mini Chest", MaxPrice = 35000, Class = "Misc"},
+            {Item = "Mini Chest", MaxPrice = 30000, Class = "Misc"},
             {Item = "Rainbow Mini Chest", MaxPrice = 500000, Class = "Misc"},  
             {Class = "Egg", Name = "Exclusive Egg 1", Price = 25000000},
             {Class = "Egg", Name = "Exclusive Egg 2", Price = 25000000},

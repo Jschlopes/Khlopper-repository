@@ -2,13 +2,9 @@ getgenv().config = {
     boothSniper = {
         autoSnipe = true,
         snipeItem = {
-            {Class = "Misc", Name = "Gift Bag", Price = 2500},
-            {Class = "Misc", Name = "Mini Chest", Price = 29000},
-            {Class = "Misc", Name = "Large Gift Bag", Price = 8500},
-            {Class = "Misc", Name = "Mini Pinata", Price = 20000},
+            {Class = "Misc", Name = "Mini Pinata", Price = 25000},
 },
         extraItem = {
-            {Class = "Misc", Name = "Rainbow Mini Chest", Price = 500000},
             {Class = "Egg", Name = "Exclusive Egg 1", Price = 25000000},
             {Class = "Egg", Name = "Exclusive Egg 2", Price = 25000000},
             {Class = "Egg", Name = "Exclusive Egg 3", Price = 25000000},

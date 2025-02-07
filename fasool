@@ -5,10 +5,6 @@ getgenv().config = {
             {Class = "Misc", Name = "Mini Pinata", Price = 25000},
 },
         extraItem = {
-            {Class = "Misc", Name = "Mini Chest", Price = 25000},
-            {Class = "Misc", Name = "Small Gift Bag", Price = 2200},
-            {Class = "Misc", Name = "Large Gift Bag", Price = 8000},
-            {Class = "Misc", Name = "Rainbow Mini Chest", Price = 500000},
          }
     },
     snipingMethod = "Terminal" --Terminal/Manual/Automated | Automated [BETA] checks if terminal is not working and then uses manual.

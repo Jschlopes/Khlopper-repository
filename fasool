@@ -2,9 +2,7 @@ getgenv().config = {
     boothSniper = {
         autoSnipe = true,
         snipeItem = {
-            {Class = "Misc", Name = "Large Gift Bag", Price = 8000},
-            {Class = "Misc", Name = "Mini Chest", Price = 30000},
-            {Class = "Misc", Name = "Gift Bag", Price = 2400},
+            {Class = "Misc", Name = "Mini Pinata", Price = 25000},
 },
         extraItem = {
          }
@@ -12,7 +10,7 @@ getgenv().config = {
     snipingMethod = "Terminal" --Terminal/Manual/Automated | Automated [BETA] checks if terminal is not working and then uses manual.
 }
 
-webhook = "https://discord.com/api/webhooks/1277207508397719614/nbtos8W_jEkWA_pgtEoIBJ_EsMvF8wyO6qPLDh_cOEV4SJnoIstM1Vv7v1-FTn88a3kl"
+webhook = ""
 
 print("Loading...")
  
